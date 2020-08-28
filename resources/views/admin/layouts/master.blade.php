@@ -58,7 +58,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
     <a class="navbar-brand" href="{{route('admin.dashboard')}}">
       <!-- <img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"> -->
-      <h2 class="text-white font-pt" style="height: 36px;">DoDo Online Shop
+      <h2 class="text-white font-pt" style="height: 36px;">E-Data
         
       </h2>
 
@@ -109,7 +109,7 @@
 
       @endphp
       
-      @if(in_array('all', $permissions) || in_array('admin.categories',$permissions))
+     
 
         <li class="nav-item @if(Request::is('admin/categories')) active @endif" data-toggle="tooltip" data-placement="right" title="Category">
           <a class="nav-link" href="{{route('admin.categories')}}">
@@ -117,32 +117,12 @@
             <span class="nav-link-text font-pt">Category</span>
           </a>
         </li>
-      @endif
+      
 
 
- 
-      @if(in_array('all', $permissions) || in_array('admin.coupons',$permissions))
-      <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Coupons" data-toggle="tooltip" data-target="#coupons-dropdown" aria-expanded="false" aria-controls="coupons-dropdown">
-        <span class="nav-link" >
-          <i class="fa fa-gift" aria-hidden="true"></i>
-          <span class="nav-link-text font-pt">Coupons</span>
-        </span>
-        <div class="collapse @if(Request::is('admin/coupons') || Request::is('admin/coupon/add')) show @endif" id="coupons-dropdown">
-          <div class="card card-body bg-dark">
-              <a class="nav-link @if(Request::is('admin/coupons')) active @endif" href="{{route('admin.coupons')}}">
-               <i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>
-                <span class="nav-link-text font-pt">All</span>
-              </a>
-              <a class="nav-link @if(Request::is('admin/coupon/add')) active @endif" href="{{route('admin.coupon.add')}}">
-                <i class="fa fa-plus-circle fa-fw" aria-hidden="true"></i>
-                <span class="nav-link-text font-pt">Add</span>
-              </a>
-          </div>
-        </div>
-      </li>
-      @endif
 
-      @if(in_array('all', $permissions) || in_array('admin.products',$permissions))
+
+      
 
       <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Products" data-toggle="tooltip" data-target="#product-dropdown" aria-expanded="false" aria-controls="product-dropdown">
         <span class="nav-link" >
@@ -163,9 +143,9 @@
         </div>
       </li>
 
-      @endif
+     
 
-      @if(in_array('all', $permissions) || in_array('admin.orders',$permissions))
+     
 
       <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Orders" data-toggle="tooltip" data-target="#order-dropdown" aria-expanded="false" aria-controls="product-dropdown">
         <span class="nav-link" >
@@ -185,10 +165,10 @@
           </div>
         </div>
       </li>
-    @endif
+   
       
 
-     @if(in_array('all', $permissions) || in_array('admin.customers',$permissions) || in_array('admin.reviews',$permissions))
+     
     <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Customers" data-toggle="tooltip" data-target="#customers-dropdown" aria-expanded="false" aria-controls="review-dropdown">
       <span class="nav-link" >
         <i class="fa fa-male" aria-hidden="true"></i>
@@ -207,11 +187,11 @@
         </div>
       </div>
     </li>
-    @endif
+   
 
 
 
-    @if(in_array('all', $permissions) || in_array('admin.emails',$permissions))
+   
   <li class="nav-item dropdown custom-dropdown" aria-controls="emails-dropdown" aria-expanded="false" data-target="#emails-dropdown" data-toggle="tooltip" data-placement="right" title="Email">
     <span class="nav-link" >
       <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -230,99 +210,16 @@
       </div>
     </div>
   </li>
-       @endif
+      
       
 
-      @if(in_array('all', $permissions) || in_array('admin.users',$permissions))
-        <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Users"  data-toggle="tooltip" data-target="#user-dropdown" aria-expanded="false" aria-controls="user-dropdown">
-          <span class="nav-link">
-            <i class="fa fa-id-badge" aria-hidden="true"></i>
-            <span class="nav-link-text font-pt">Users</span>
-          </span>
-          <div class="collapse " id="user-dropdown">
-            <div class="card card-body bg-dark">
-                <a class="nav-link" href="{{route('admin.users')}}">
-                  <i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>
-                  <span class="nav-link-text font-pt">All</span>
-                </a>
-                <a class="nav-link" href="{{route('admin.user.add')}}">
-                  <i class="fa fa-plus-circle fa-fw" aria-hidden="true"></i>
-                  <span class="nav-link-text font-pt">Add</span>
-                </a>
-            </div>
-          </div>
-        </li>
-       
-        @endif
+
         
 
 
-        @if(in_array('all', $permissions) || in_array('admin.faqs',$permissions) || in_array('admin.banner',$permissions) || in_array('admin.sliders',$permissions))
-     
-        <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Front-End"  data-toggle="tooltip" data-target="#Front-dropdown" aria-expanded="false" aria-controls="Front-dropdown">
-          <span class="nav-link">
-            <i class="fa fa-fw fa-puzzle-piece" aria-hidden="true"></i>
-            <span class="nav-link-text font-pt">Front-End</span>
-          </span>
-          <div class="collapse @if(Request::is('admin/faqs') || Request::is('admin/sliders')) show @endif" id="Front-dropdown">
-            <div class="card card-body bg-dark">
 
 
-                <a class="nav-link" href="{{route('admin.banner')}}">
-                  <i class="fa fa-flag" aria-hidden="true"></i>
-                  <span class="nav-link-text font-pt">Banner</span>
-                </a>
-               
-                <a class="nav-link @if(Request::is('admin/sliders')) active @endif" href="{{route('admin.sliders')}}">
-                  <i class="fa fa-sliders" aria-hidden="true"></i>
-                  <span class="nav-link-text font-pt">Slider</span>
-                </a>
-                <a class="nav-link @if(Request::is('admin/faqs')) active @endif" href="{{route('admin.faqs')}}">
-                  <i class="fa fa-question-circle" aria-hidden="true"></i>
-                  <span class="nav-link-text font-pt">FAQ</span>
-                </a>
-            </div>
-          </div>
-        </li>
-
-        @endif
-
-
-        @if(in_array('all', $permissions) || in_array('admin.pages',$permissions))
-
-        <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Pages" data-toggle="tooltip" data-target="#package-dropdown" aria-expanded="false" aria-controls="package-dropdown">
-          <span class="nav-link" >
-            <i class="fa fa-file-text" aria-hidden="true"></i>
-            <span class="nav-link-text font-pt">Pages</span>
-          </span>
-          <div class="collapse " id="package-dropdown">
-            <div class="card card-body bg-dark">
-                <a class="nav-link" href="{{route('admin.about')}}">
-                 <i class="fa fa-address-card-o" aria-hidden="true"></i>
-                  <span class="nav-link-text font-pt">About</span>
-                </a>
-
-               
-
-
-                <a class="nav-link" href="{{route('admin.privacy')}}">
-                  <i class="fa fa-handshake-o" aria-hidden="true"></i>
-                  <span class="nav-link-text font-pt">P.Policy</span>
-                </a>
-
-
-                <a class="nav-link" href="{{route('admin.condition')}}">
-                  <i class="fa fa-gavel" aria-hidden="true"></i>
-                  <span class="nav-link-text font-pt">Condition</span>
-                </a>
-
-            </div>
-          </div>
-        </li>
-         @endif
-
-
-         @if(in_array('all', $permissions) || in_array('admin.data',$permissions))
+        
         <li class="nav-item dropdown custom-dropdown" data-placement="right" title="Data" data-toggle="tooltip" data-target="#data-dropdown" aria-expanded="false" aria-controls="data-dropdown">
           <span class="nav-link" >
             <i class="fa fa-line-chart" aria-hidden="true"></i>
@@ -339,28 +236,28 @@
             </div>
           </div>
         </li>
-        @endif
         
-         @if(in_array('all', $permissions) || in_array('admin.reports',$permissions))
+        
+        
         <li class="nav-item @if(Request::is('admin/reports')) active @endif" data-toggle="tooltip" data-placement="right"  title="Report">
           <a class="nav-link" href="{{route('admin.reports')}}">
             <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
             <span class="nav-link-text font-pt">Report</span>
           </a>
         </li>
-        @endif
+        
         
 
 
 
-         @if(in_array('all', $permissions) || in_array('admin.settings',$permissions))
+         
         <li class="nav-item @if(Request::is('admin/settings')) active @endif" data-toggle="tooltip" data-placement="right"  title="Settings">
           <a class="nav-link" href="{{route('admin.settings')}}">
             <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
             <span class="nav-link-text font-pt">Settings</span>
           </a>
         </li>
-         @endif
+        
       
 
       </ul>

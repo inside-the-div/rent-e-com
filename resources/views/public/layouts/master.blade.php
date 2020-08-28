@@ -145,7 +145,7 @@
 						<div id="logo">
 							<!-- <a href="index.html"><img src="img/logo.svg" alt="" width="100" height="35"></a> -->
 							<a href="{{route('website.home')}}">
-								<h1 class="text-white mt-2">DoDo</h1>
+								<h1 class="text-white mt-2">E-Data</h1>
 							</a>
 						</div>
 					</div>
@@ -161,10 +161,10 @@
 						<div class="main-menu">
 							<div id="header_menu">
 								<!-- <a href="index.html">
-	<h1 class="text-dark mt-2">DoDo</h1>
+	<h1 class="text-dark mt-2">E-Data</h1>
 </a> -->
 								<a href="index.html">
-									<h1 class="text-dark mt-2">DoDo</h1>
+									<h1 class="text-dark mt-2">E-Data</h1>
 								</a>
 								<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
 							</div>
@@ -258,7 +258,7 @@
 								<!-- /dropdown-cart-->
 							</li>
 							<li>
-								<a href="#0" class="wishlist"><span>Wishlist</span></a>
+								<a  href="#0" class="wishlist d-none"><span>Wishlist</span></a>
 							</li>
 							<li>
 								<div class="dropdown dropdown-access">
@@ -317,11 +317,12 @@
 		<div id="carousel-home" class="container mt-2">
 			<div class="owl-carousel owl-theme">
 
-				@foreach(Session::get('sliders') as $slider)
-				<div class="owl-slide cover" style="background-image: url({{URL::asset('/assets/img/slider')}}/{{$slider->image}}); border-radius: 15px 15px 0px 0px; border:2px solid #004dda;">
-					
-				</div>
-				@endforeach
+				
+				<div class="owl-slide cover" style="background-image: url({{URL::asset('/assets/img/slider')}}/slider-1.jpg); border-radius: 15px 15px 0px 0px; border:2px solid #004dda;"></div>
+				<div class="owl-slide cover" style="background-image: url({{URL::asset('/assets/img/slider')}}/slider-2.jpg); border-radius: 15px 15px 0px 0px; border:2px solid #004dda;"></div>
+				<div class="owl-slide cover" style="background-image: url({{URL::asset('/assets/img/slider')}}/slider-3.jpg); border-radius: 15px 15px 0px 0px; border:2px solid #004dda;"></div>
+				
+				
 
 			</div>
 			<div id="icon_drag_mobile"></div>

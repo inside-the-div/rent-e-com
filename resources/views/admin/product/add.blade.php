@@ -96,13 +96,7 @@
 			<div class="col-12 col-lg-4"> 
 				<div class="card p-3 rounded-0">
 
-					<label for="sticker" class="font-pt font-16"><b>Sticker*</b></label>
-					<select  name="sticker" id="sticker" class="form-control rounded-0 font-pt font-18 mb-2">
-						<option class="font-pt font-18 py-2" value="New">New</option>
-						<option class="font-pt font-18 py-2" value="Old">Old</option>
-						<option class="font-pt font-18 py-2" value="Hote">Hot</option>
-						
-					</select>
+					
 
 					<label for="category" class="font-pt font-16"><b>Category*</b></label>
 					<select required name="category[]" id="category" class="form-control rounded-0 font-pt font-18 mb-2" multiple>
@@ -121,9 +115,9 @@
 						<div class="preview" id="base-image-preview"  ></div>
 					</div>
 
-					<div id="more-image-area"></div>
+					
 
-					<button id="add-more-image-btn" class="btn_1 my-2 font-18 font-pt">Add More Image</button>
+					
 
 					<label for="available" class="font-pt font-16"><b>Availability</b></label>
 					<select name="available" id="available" class="form-control rounded-0 font-pt font-18 mb-2">
@@ -221,28 +215,8 @@
 			$('#base-image-show').hide();
 			var preview_id;
 			$(document).ready(function(){
-				$("#add-more-image-btn").click(function(e){
 
-					var total = $(".product-new-image").length;
 
-					var new_img = `
-						<div class="product-new-image mt-2">
-							<span class="delete-this-image">X</span>
-							<label class="font-pt font-18"  for=""><b>Slider - `+(total+1)+`</b></label>
-
-							<input data-total="`+total+`" class="form-control new-image input-file" type="file" name="more_image[]">
-							<p id="image-validate-`+total+`" class=" text-danger  text-center"></p>
-							<div class="card m-2 product-image-preview-area" >
-								<div id="preview-`+total+`" class="preview"  ></div>
-
-							</div>
-						</div>
-					`;
-					$("#more-image-area").append(new_img);
-
-					e.preventDefault();
-					return false;
-				})
 
 
 				$("#base-image").change(function(){
@@ -270,59 +244,11 @@
 	            	       reader.readAsDataURL(this.files[0],this);
 	            		}
 		            }
-
-
-
-
 					
 				})
-			})
 
 
-			$(document).on('change', '.new-image', function(){  
-			  
-			  
-			   preview_id = $(this).data('total');
-
-			   
-
-
-
-			    var img_size=(this.files[0].size);
-	            
-	            if(img_size > 2000000) {
-	              
-	               	
-	               $(this).val('');
-	               $("#image-validate-"+preview_id).html("Image size is too large(size > 2MB)! use < 2MB ");
-
-
-
-	            }else{
-	            	$("#image-validate-"+preview_id).html("");
-            	   if (this.files && this.files[0]) {
-            			var reader = new FileReader();
-            			reader.onload = function(e,input) {
-            			    $('#preview-'+preview_id).css('background-image', 'url('+e.target.result +')');
-            			    $('#preview-'+preview_id).hide();
-            			    $('#preview-'+preview_id).fadeIn(650);
-            	
-            			}
-            			reader.readAsDataURL(this.files[0],this);
-            	    }
-	            }
-
-
-
-
-
-
-			})
-
-
-			$(document).on('click','.delete-this-image',function(){
-				 $(this).parent().remove();				 
-			})
+			}) //end jquery
 
 
 		</script>

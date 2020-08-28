@@ -36,7 +36,7 @@ class OrderSeeder extends Seeder
         	$total_quantity = 0;
 
         	for($j=0;$j<$total_product;$j++){
-        		$product_id = rand(1,100);
+        		$product_id = rand(1,75);
         		$this_product_quantity = rand(1,5);
 
         		array_push($product_id_array, $product_id);

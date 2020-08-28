@@ -70,7 +70,7 @@ class ProductController extends Controller
 
 		$code = substr(md5(time()), 0, 5);
 		$last_2 = rand(1,100);
-		$code = "BC-P-".$code."-".$last_2;
+		$code = "DA-E-P-".$code."-".$last_2;
 		
 
 
@@ -102,24 +102,7 @@ class ProductController extends Controller
 		$product->save();
 		$product->categories()->sync($r->category);
 
-		
-		if ($r->hasFile('more_image')) {
-
-			for($i=0; $i< count($r->more_image); $i++){
-
-				// $this_mor_img = $r->more_image[$i]->store('public/images');
-
-				$this_mor_img = time().$i.'.'.$r->more_image[$i]->getClientOriginalExtension();
-				$r->more_image[$i]->move(public_path('/assets/img/products'), $this_mor_img);
-
-				$more_img = new ProductImage;
-				
-				$more_img->product_id = $product->id;
-				$more_img->image = $this_mor_img;
-				$more_img->save();
-			}
-		}
-
+	
 
 		Cache::flush(); // clear cache
 
@@ -134,13 +117,7 @@ class ProductController extends Controller
 
 		$img_array = $product->images;
 
-		// delete slider image from store
-		foreach ($img_array as $img) {
-			$path = public_path('/assets/img/products');
-			if (File::exists($path.'/'.$img->image)){
-			    File::delete($path.'/'.$img->image);
-			}
-		}
+
 		
 		//delete base image
 		$path = public_path('/assets/img/products');
@@ -151,7 +128,7 @@ class ProductController extends Controller
 
 		$product->delete();
 		DB::table('category_product')->where('product_id',$r->id)->delete();
-		DB::table('product_images')->where('product_id',$r->id)->delete();
+		
 		
 
 		Cache::flush(); // clear cache
@@ -168,26 +145,6 @@ class ProductController extends Controller
 	public function update(Request $r){
 
 
-
-		// dd($r);
-
-		if ($r->has('slider_image_delete_id_array')) {
-   			// delete slider which xros
-   			$id_array = $r->slider_image_delete_id_array;
-
-   			for($j=0;$j<count($id_array);$j++){
-   				$slider = ProductImage::find($id_array[$j]);
-   				$delete_this_slider =  $slider->image;
-
-
-   				$path = public_path('/assets/img/products');
-   				if (File::exists($path.'/'.$delete_this_slider)){
-   				    File::delete($path.'/'.$delete_this_slider);
-   				}
-
-   				$slider->delete();  //also delete form db
-   			}
-		}
 
 	
 		$r->validate([
@@ -245,78 +202,6 @@ class ProductController extends Controller
 			
 		} // end base image code
 
-		// get name and id array of old slider 
-		$slider_img_name_array = $r->old_img_name_array;
-		$slider_img_id_array = $r->old_img_id_array;
-
-	
-		for($i=1; $i<= $r->total_old_img; $i++){
-			if ($r->hasFile('slider_'.$i)) {
-
-				$r->validate([
-					'slider_'.$i => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-				]);
-
-				$delete_this_image = $slider_img_name_array[$i-1];
-				$delete_this_more_img_record_form_db = $slider_img_id_array[$i-1];
-
-				// $del = 0;
-				// if(Storage::delete($delete_this_image)){
-				// 	$del = 1;
-				// } 
-
-				// delete this image from folder
-				$path = public_path('/assets/img/products');
-				if (File::exists($path.'/'.$delete_this_image)){
-				    File::delete($path.'/'.$delete_this_image);
-				}
-
-
-				ProductImage::find($delete_this_more_img_record_form_db)->delete(); // delete slider old slider image form db
-				
-				$str = 'slider_'.$i;
-
-				$store_this_image = $r->$str; //get new slider
-				dd("new slider =>> ".$store_this_image);
-
-				// dd($str);
-				// $new_slider = $store_this_image->store('public/images');// store new slider image 
-
-				//store new slider
-				$new_slider = time().$i.'.'.$store_this_image->getClientOriginalExtension();
-				$store_this_image->move(public_path('/assets/img/products'), $new_slider);
-
-				$new_slider_obj = new ProductImage; 
-				$new_slider_obj->product_id = $r->product_id; 
-				$new_slider_obj->image = $new_slider; 
-				$new_slider_obj->save();
-
-			}
-		}
-
-	
-		// store and upload new image 
-		if ($r->hasFile('more_image')) {
-
-			$this->validate($r, [
-				'more_image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-			]);
-
-			for($i=0; $i< count($r->more_image); $i++){
-
-				$this_more_img = $r->more_image[$i];
-
-				$new_slider = time().$i.'.'.$this_more_img->getClientOriginalExtension();
-				$this_more_img->move(public_path('/assets/img/products'), $new_slider);
-
-
-				$more_img = new ProductImage;
-				$more_img->product_id = $r->product_id;
-				$more_img->image = $new_slider;
-				$more_img->save();
-
-			}
-		}
 
 		$product->save();
 

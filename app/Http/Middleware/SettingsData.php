@@ -42,8 +42,7 @@ class SettingsData
             Session::put('address',$settings->address);
             Session::put('location',$settings->location);
             
-            $sliders = Slider::where('active','=',1)->get();
-            Session::put('sliders',$sliders);
+          
 
             $categories = Category::all();
             Session::put('categories',$categories);

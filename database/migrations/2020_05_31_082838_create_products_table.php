@@ -30,7 +30,6 @@ class CreateProductsTable extends Migration
             $table->double('shipping_cost')->default(0.0);
             $table->boolean('active')->default(0);
             $table->boolean('available')->default(1);
-            $table->string('tag_line')->default('new');
             $table->boolean('home_show')->default(0);
 
             //seo

@@ -14,16 +14,15 @@ class DatabaseSeeder extends Seeder
          $this->call(UserSeeder::class);
          $this->call(CustomerSeeder::class);
          $this->call(CategorySeeder::class);
-         $this->call(BrandSeeder::class);
-         $this->call(SliderSeeder::class);
+         
+        
          $this->call(ProductSeeder::class);
          $this->call(ReviewSeeder::class);
-         $this->call(FaqSeeder::class);
-         $this->call(CouponSeeder::class);
+         
          $this->call(SettingsSeeder::class);
          $this->call(EcommerceSeeder::class);
          $this->call(OrderSeeder::class);
          $this->call(EmailSeeder::class);
-         // $this->call(CategoryProductSeeder::class);
+         
     }
 }

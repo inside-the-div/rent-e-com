@@ -28,12 +28,12 @@
 				<div class="all">
 					<div class="slider">
 						<div class="owl-carousel owl-theme main">
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item-box"></div>
 			
 						</div>
 						<div class="left nonl"><i class="ti-angle-left"></i></div>
@@ -41,13 +41,13 @@
 					</div>
 					<div class="slider-two">
 						<div class="owl-carousel owl-theme thumbs">
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item active"></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
-							<div style="background-image: url({{URL::asset('assets/img/products')}}/{{$product->image}});" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item active"></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
+							<div style="background-image: url('{{URL::asset('assets/img/products')}}/{{$product->image}}');" class="item "></div>
 					
 						</div>
 						<div class="left-t nonl-t"></div>
@@ -265,8 +265,8 @@
 					<figure>
 					
 						<a href="{{route('website.single_product',['slug' => $product->slug])}}">
-							<img class="img-fluid lazy" src="{{URL::asset('assets/img/products')}}/{{$product->image}}" data-src="{{URL::asset('assets/img/products/')}}/{{$product->image}}" alt="">
-							<img class="img-fluid lazy" src="{{URL::asset('assets/img/products')}}/{{$product->image}}" data-src="{{URL::asset('assets/img/products/')}}/{{$product->image}}" alt="">
+							<img class="img-fluid lazy" src="'{{URL::asset('assets/img/products')}}/{{$product->image}}'" data-src="{{URL::asset('assets/img/products/')}}/{{$product->image}}" alt="">
+							<img class="img-fluid lazy" src="'{{URL::asset('assets/img/products')}}/{{$product->image}}'" data-src="{{URL::asset('assets/img/products/')}}/{{$product->image}}" alt="">
 						</a>
 						
 					</figure>

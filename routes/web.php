@@ -110,7 +110,7 @@ Auth::routes();
 Route::group([
 	'prefix' => 'admin',
 	'middleware' => [
-		'auth','admin','permission'
+		'auth','admin'
 	],
 ], function (){
 
@@ -176,24 +176,9 @@ Route::group([
 
 
 
-   // coupons
-   Route::get('/coupons','CouponController@index')->name('admin.coupons');
-   Route::get('/coupon/add','CouponController@add')->name('admin.coupon.add');
-   Route::get('/coupon/edit/{id}','CouponController@edit')->name('admin.coupon.edit');
-   Route::get('/coupon/show/{id}','CouponController@show')->name('admin.coupon.show');
-   Route::post('/coupon/store','CouponController@store')->name('admin.coupon.store');
-   Route::post('/coupon/update','CouponController@update')->name('admin.coupon.update');
-   Route::post('/coupon/delete','CouponController@delete')->name('admin.coupon.delete');
+   
 
 
-   // packages
-   Route::get('/packages','PackageController@index')->name('admin.packages');
-   Route::get('/package/add','PackageController@add')->name('admin.package.add');
-   Route::get('/package/show/{id}','PackageController@show')->name('admin.package.show');
-   Route::get('/package/edit/{id}','PackageController@edit')->name('admin.package.edit');
-   Route::post('/package/store','PackageController@store')->name('admin.package.store');
-   Route::post('/package/update','PackageController@update')->name('admin.package.update');
-   Route::post('/package/delete','PackageController@delete')->name('admin.package.delete');
 
    // reviews
    Route::get('/reviews','ReviewController@index')->name('admin.reviews');
@@ -216,15 +201,7 @@ Route::group([
 
    Route::post('/banner/update','BannerController@update')->name('admin.banner.update');
 
-   // users
-   Route::get('/users','CustomUserController@index')->name('admin.users');
-   Route::get('/user/add','CustomUserController@add')->name('admin.user.add');
-   Route::get('/user/show/{id}','CustomUserController@show')->name('admin.user.show');
-   Route::get('/user/edit/{id}','CustomUserController@edit')->name('admin.user.edit');
-   Route::post('/user/store','CustomUserController@store')->name('admin.user.store');
-   Route::post('/user/update','CustomUserController@update')->name('admin.user.update');
-   Route::post('/user/delete','CustomUserController@delete')->name('admin.user.delete');
-   Route::post('/user/active','CustomUserController@active')->name('admin.user.active');
+
 
    // settings
     Route::get('/settings','SettingsController@index')->name('admin.settings');
