@@ -82,11 +82,12 @@ class OrderSeeder extends Seeder
         	$order->total_quantity = $total_quantity;
         	$order->emergency_phone = $emergency_phone;
 
-        	$order->status = $status;
-        	$order->payment = $payment;
-        	$order->payment_cost = $payment_cost;
-        	$order->process = $process;
-        	$order->admin_note = $admin_note;
+        	$order->status         = $status;
+        	$order->payment        = $payment;
+        	$order->payment_cost   = $payment_cost;
+        	$order->process        = $process;
+        	$order->admin_note     = $admin_note;
+            $order->seen           = rand(0,1);
         	
         	
         	$order->save();
@@ -96,9 +97,10 @@ class OrderSeeder extends Seeder
 
         	for($k = 0; $k<sizeof($product_id_array); $k++){
         		$values = array(
-        			'order_id' => $order_id,
-        			'product_id' => $product_id_array[$k],
-        			'product_quantity' => $product_quantity_array[$k]
+        			'order_id'           => $order_id,
+        			'product_id'         => $product_id_array[$k],
+        			'product_quantity'   => $product_quantity_array[$k],
+                    'date'               => $order->created_at,
         		);
         		DB::table('order_products')->insert($values);
         	}

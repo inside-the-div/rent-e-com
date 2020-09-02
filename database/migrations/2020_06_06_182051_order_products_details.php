@@ -18,6 +18,7 @@ class OrderProductsDetails extends Migration
             $table->unsignedInteger('order_id');
             $table->unsignedInteger('product_id');
             $table->integer('product_quantity');
+            $table->string('date');
             $table->timestamps();
         });
     }

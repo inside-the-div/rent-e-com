@@ -30,6 +30,7 @@ class CreateOrdersTable extends Migration
             $table->mediumText('admin_note')->nullable();
             $table->string('completed_at')->nullable();
             $table->string('transection_id')->nullable();
+            $table->boolean('seen')->default(0);
             
             $table->timestamps();
         });

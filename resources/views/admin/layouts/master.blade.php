@@ -58,7 +58,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
     <a class="navbar-brand" href="{{route('admin.dashboard')}}">
       <!-- <img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"> -->
-      <h2 class="text-white font-pt" style="height: 36px;">E-Data
+      <h2 class="text-white font-pt" style="height: 36px;">Logo
         
       </h2>
 
@@ -87,7 +87,7 @@
                 <i class="fa fa-spinner" aria-hidden="true" id="loading-icon"></i>
                 
 
-                <span class="nav-link-text font-pt">Update</span>
+                <span class="nav-link-text font-pt">Clear</span>
               </a>
           </div>
         </div>
@@ -276,6 +276,19 @@
               <span class="sr-only">Loading...</span>
             </div>
           </a>
+        </li>        
+
+{{-- notification li --}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-bell"></i>
+            <span class="">
+              <span class="badge badge-pill badge-warning" id="total_notification">0</span>
+            </span>
+          </a>
+          <div style="left: 0px; max-height: 500px;overflow-y: scroll;" class="dropdown-menu" aria-labelledby="alertsDropdown" id="order_notification_list">
+            {{-- notification show area --}}
+          </div>
         </li>
 
         <li class=" dropdown ">
@@ -337,7 +350,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © DoDo Online Shop</small>
+          <small>Copyright © Your Name</small>
         </div>
       </div>
     </footer>
@@ -450,12 +463,60 @@
 
             });
             e.preventDefault();
-          })
+          })// end ajax
+
+
+          setInterval(find_order_notification, 3000);
+
+        
+
+        }) // end jquery
 
 
 
 
-        }) // end ajax
+        function find_order_notification(){
+          $.ajax({
+             type:'POST',
+             url:'/admin/order_notification',
+             data:{id:1},
+             success:function(data){
+                show_notification(data);
+             }
+
+          });
+        } // end
+
+
+
+
+        function show_notification(data){
+          // show badge
+         $("#total_notification").html(data.total_notification);
+         var list = '';
+          $.each(data.orders, function(key,order){
+
+            var url = window.location.origin;
+            url = url+'/admin/order/show/'+order.id;
+
+            list += `
+              <a target="_blank" class="dropdown-item" href="`+url+`">
+                
+                <div class="dropdown-message">`+order.order_code+`</div>
+                <div class="dropdown-divider"></div>
+              </a>
+            `;
+          });
+          $('#order_notification_list').html(
+            `
+              <h6 class="dropdown-header">New Orders:</h6>
+              <div class="dropdown-divider"></div>
+              `+list+`
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item small" href="{{route('admin.orders')}}">View all</a>
+            `
+          );
+        }
        
     </script>
 

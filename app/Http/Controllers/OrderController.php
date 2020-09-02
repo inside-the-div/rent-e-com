@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Auth;
@@ -16,9 +16,12 @@ use App\BillingDetail;
 class OrderController extends Controller
 {
     public function index(){
-        $orders = Order::all();
+
+        $orders = Cache::rememberForever('all-orders', function () {
+            return Order::orderBy('id','DESC')->get();
+        });
+
         return view('admin.order.index',compact('orders'));
-    	return view('admin.order.index');
     }
 
     public function show($id){
@@ -116,6 +119,17 @@ class OrderController extends Controller
     }
     public function deactivated(){
     	return back()->with('success','Order Deactivated');
+    }
+
+    public function seen(Request $r){
+        $order = Order::find($r->id);
+
+        $order->seen = 1;
+
+        $order->save();
+        return response()->json([
+            'message' => 'Success'
+        ]);
     }
 
 

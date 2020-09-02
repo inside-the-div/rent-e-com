@@ -59,7 +59,7 @@
 					
 							</div>
 
-							<input type="hidden" name="id" value="{{$order->id}}">
+							<input type="hidden" id="order_id" name="id" value="{{$order->id}}">
 							<input type="submit" name="submit" class="btn_1 form-control mt-2"  value="Update">
 							
 						</form>
@@ -103,7 +103,7 @@
 						<hr>
 
 						<ul class="group-list">
-							<li class="font-pt font-16 mb-1"><b>Name: </b>{{$billing->first_name}} {{$billing->last_name}}</li>
+							<li class="font-pt font-16 mb-1"><b>Name: </b>{{$billing->name}}</li>
 							<li class="font-pt font-16 mb-1"><b>Phone: </b>{{$billing->phone}}</li>
 							<li class="font-pt font-16 mb-1"><b>Email: </b>{{$billing->email}}</li>
 							<li class="font-pt font-16 mb-1"><b>City: </b>{{$billing->city}}</li>
@@ -118,7 +118,7 @@
 						<h2 class="font-20 font-pt">Shipping Details</h2>
 						<hr>
 						<ul class="group-list">
-							<li class="font-pt font-16 mb-1"><b>Name: </b>{{$shipping->first_name}} {{$shipping->last_name}}</li>
+							<li class="font-pt font-16 mb-1"><b>Name: </b>{{$shipping->name}}</li>
 							<li class="font-pt font-16 mb-1"><b>Phone: </b>{{$shipping->phone}}</li>
 							<li class="font-pt font-16 mb-1"><b>Email: </b>{{$shipping->email}}</li>
 							<li class="font-pt font-16 mb-1"><b>City: </b>{{$shipping->city}}</li>
@@ -200,12 +200,26 @@
 
 
 	</div>
+@endsection
 
 
+@section('footer-section')
+  
+  <script>
+    $(document).ready(function(){
 
+    	var id = $("#order_id").val();
+    	$.ajax({
+    	   type:'POST',
+    	   url:'/admin/order/auto_seen',
+    	   data:{id:id},
+    	   success:function(data){
+    	      
+    	   }
+    	});
 
+    })
 
-
-
+  </script>
 
 @endsection

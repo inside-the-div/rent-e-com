@@ -30,6 +30,15 @@ Route::post('/search', 'FrontEndController@search')->name('website.search');
 Route::get('/cart', 'FrontEnd\CartController@view_cart')->name('website.cart.view');
 Route::get('/check-out', 'FrontEnd\CartController@check_out')->name('website.cart.check_out');
 
+
+// order submit
+
+Route::post('/order-submit', 'FrontEnd\OrderController@submit')->name('website.order.submit');
+Route::get('/confirm', 'FrontEnd\OrderController@confirm')->name('website.order.confirm');
+
+
+
+
 });
 
 
@@ -128,6 +137,8 @@ Route::group([
    Route::post('/order/delete','OrderController@delete')->name('admin.order.delete');
    Route::post('/order/confirm','OrderController@confirm')->name('admin.order.confirm');
    Route::post('/order/download','OrderController@download')->name('admin.order.download');
+
+   Route::post('/order/auto_seen','OrderController@seen')->name('admin.order.seen');
 
    // customers 
    Route::get('/customers','CustomerController@index')->name('admin.customers');
@@ -272,6 +283,13 @@ Route::group([
     Route::post('/faq/store','FaqController@store')->name('admin.faq.store');
     Route::post('/faq/update','FaqController@update')->name('admin.faq.update');
     Route::post('/faq/delete','FaqController@delete')->name('admin.faq.delete');
+
+
+
+
+
+    // notification
+    Route::post('/order_notification','NotificationController@order')->name('admin.notification.order');
 
 
     // cache 

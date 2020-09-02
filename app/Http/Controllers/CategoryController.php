@@ -53,8 +53,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-       // update cache all categories
-        $this->delete_all_category_cache();
+  
 
     	return back()->with('success','category Stored');
     }
@@ -102,8 +101,7 @@ class CategoryController extends Controller
         $category->save();
         
 
-       // update cache all categories
-        $this->delete_all_category_cache();
+      
        
     	return back()->with('success','Category Updated');
     }

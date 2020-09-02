@@ -145,7 +145,7 @@
 						<div id="logo">
 							<!-- <a href="index.html"><img src="img/logo.svg" alt="" width="100" height="35"></a> -->
 							<a href="{{route('website.home')}}">
-								<h1 class="text-white mt-2">E-Data</h1>
+								<h1 class="text-white mt-2">Logo</h1>
 							</a>
 						</div>
 					</div>
@@ -161,18 +161,18 @@
 						<div class="main-menu">
 							<div id="header_menu">
 								<!-- <a href="index.html">
-	<h1 class="text-dark mt-2">E-Data</h1>
+	<h1 class="text-dark mt-2">Logo</h1>
 </a> -->
-								<a href="index.html">
-									<h1 class="text-dark mt-2">E-Data</h1>
+								<a href="/">
+									<h1 class="text-dark mt-2">Logo</h1>
 								</a>
 								<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
 							</div>
 							<ul>
-								<li class="">
+								{{-- <li class="">
 									<a href="" class="show-submenu">Custom Order</a>
 									
-								</li>
+								</li> --}}
 								<li class="megamenu ">
 									<a href="{{route('website.about_page')}}" class="show-submenu-mega">About</a>
 									
@@ -184,15 +184,13 @@
 								<li>
 									<a href="">Feedback</a>
 								</li>
-								<li>
-									<a href="" target="_parent">Blog</a>
-								</li>
+								
 							</ul>
 						</div>
 						<!--/main-menu -->
 					</nav>
 					<div class="col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-right">
-						<a class="phone_top" href="tel://9438843343"><strong><span>Need Help?</span>01637017926</strong></a>
+						<a class="phone_top" href="tel://9438843343"><strong><span>Need Help?</span>01xxxxxxxx</strong></a>
 					</div>
 				</div>
 				<!-- /row -->
