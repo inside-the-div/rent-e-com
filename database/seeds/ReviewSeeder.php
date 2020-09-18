@@ -22,7 +22,7 @@ class ReviewSeeder extends Seeder
         		$review->active = rand(0,1);
         		
 
-                $review->name = "Nasir Khan";
+                $review->name = "Sadia Karobi";
                 $review->comment = "Outstanding";
                 $review->star = rand(3,5);
                

@@ -68,7 +68,7 @@ Contact Us | {{Session::get('title')}}
 
 							<div class="col-12 col-lg-5">
 								
-									<h2 style="font-size: 20px;" class="text-center">DoDo Online Shop</h2>
+									<h2 style="font-size: 20px;" class="text-center">Online Rent System</h2>
 									<hr class="my-2">
 
 									<address>

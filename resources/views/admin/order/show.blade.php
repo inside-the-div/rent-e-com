@@ -37,7 +37,8 @@
 								<div class="col-12 col-lg-6 mb-2">
 									<label for="order_status"><b>Order Status:</b></label>
 									<select class="form-control" name="order_status" id="order_status">
-										<option value="{{$order->payment}}">{{$order->payment}}</option>
+										<option value="{{$order->status}}">{{$order->status}}</option>
+										<option value="confirm">confirm</option>
 										<option value="cancel">cancel</option>
 										<option value="Processing">Processing</option>
 										<option value="On The Way">On The Way</option>
@@ -134,67 +135,71 @@
 
 		<div class="col-12  col-lg-7">
 			<div class="card p-3">
-				<h2 class="font-20 font-pt">Products of This Order ({{$order->total_product}})</h2>
-				<hr>
+				
 
-				     <table class="table table-striped table-dark display ">
-				       <thead>
-				         <tr align="center">
-				           
-				           <th scope="col">Name</th>
-				           <th scope="col">Code</th>
-				           <th scope="col">Image</th>
-				           <th scope="col">Price</th>
-				           <th scope="col">Quantity</th>
-				           <th scope="col">Subtotal</th>
-				           
-				         </tr>
-				       </thead>
-				      <tbody>
-						@php 
-							$i= -1;
-							$total_quantity = 0;
-							$grand_total = 0;
-						@endphp
-						@foreach($products as $product)
+				<div class="card p-3">
+					<h2 class="font-20 font-pt">Products of This Order ({{$order->total_product}})</h2>
+					<hr>
+
+					     <table class="table table-striped table-dark display ">
+					       <thead>
+					         <tr align="center">
+					           
+					           <th scope="col">Name</th>
+					           <th scope="col">Code</th>
+					           <th scope="col">Image</th>
+					           <th scope="col">Price</th>
+					           <th scope="col">Quantity</th>
+					           <th scope="col">Subtotal</th>
+					           
+					         </tr>
+					       </thead>
+					      <tbody>
 							@php 
-								$i++;
-
-								$total_quantity += $products_qty_array[$i];
-
-								$sub_total = ($products_qty_array[$i] * $product->price);
-								$grand_total += $sub_total;
+								$i= -1;
+								$total_quantity = 0;
+								$grand_total = 0;
 							@endphp
-				        <tr align="center"> 
-				           
-				           
-				           <td><a target="_blank" href="{{route('website.single_product',['slug' => $product->slug])}}" class="text-light font-pt font-18">{{$product->name}}</a></td>
-				           <td><a target="_blank" href="{{route('admin.product.show',['slug' => $product->slug])}}" class="text-light font-pt font-18">{{$product->code}}</a></td>
-				           <td class="font-pt font-18"><img width="40px" class="" src="{{URL::asset('/assets/img/products')}}/{{$product->image}}" alt=""></td>
-				           <td class="font-pt font-18">৳ {{$product->price}}</td>
-				           <td class="font-pt font-18">{{$products_qty_array[$i]}}</td>
-				           <td class="font-pt font-18">৳ {{$sub_total}}</td>
-				        </tr>
+							@foreach($products as $product)
+								@php 
+									$i++;
 
-				          
+									$total_quantity += $product['quantity'];
+
+									$sub_total = ($product['quantity'] * $product['price']);
+									$grand_total += $sub_total;
+								@endphp
+					        <tr align="center"> 
+					           
+					           
+					           <td><a target="_blank" href="{{route('admin.product.show',['slug' => $product['slug']])}}" class="text-light font-pt font-18">{{$product['name']}}</a></td>
+					           <td><a target="_blank" href="{{route('admin.product.show',['slug' => $product['slug']])}}" class="text-light font-pt font-18">{{$product['code']}}</a></td>
+					           <td class="font-pt font-18"><img width="40px" class="" src="{{URL::asset('/assets/img/products')}}/{{$product['image']}}" alt=""></td>
+					           <td class="font-pt font-18">৳ {{$product['price']}}</td>
+					           <td class="font-pt font-18">{{$product['quantity']}}</td>
+					           <td class="font-pt font-18">৳ {{$sub_total}}</td>
+					        </tr>
+
+					          
 
 
-				          
+					          
 
-				         
+					         
 
-				      
-				        
-				       @endforeach
+					      
+					        
+					       @endforeach
 
-				       <tr align="center">
-				       	<td colspan="4" align="right">Grand</td>
-				       	<td>{{$total_quantity}}</td>
-				       	<td>৳ {{$grand_total}}</td>
-				       </tr>
-				       </tbody> 
+					       <tr align="center">
+					       	<td colspan="4" align="right">Grand</td>
+					       	<td>{{$total_quantity}}</td>
+					       	<td>৳ {{$grand_total}}</td>
+					       </tr>
+					       </tbody> 
 
-				     </table>
+					     </table>
+				</div>
 			</div>
 		</div>
 

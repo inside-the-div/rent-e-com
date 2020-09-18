@@ -19,7 +19,7 @@
 @section('content')
 	<div class="container margin_60_35">
 
-		<div class="main_title text-left">
+{{-- 		<div class="main_title text-left">
 			<h2 class="section_title" style="font-size: 25px;">Categories</h2>
 		</div>
 
@@ -43,7 +43,7 @@
 			</div>
 			@endforeach
 		</div>
-
+ --}}
 
 
 

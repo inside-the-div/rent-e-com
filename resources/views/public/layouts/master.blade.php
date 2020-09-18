@@ -145,7 +145,7 @@
 						<div id="logo">
 							<!-- <a href="index.html"><img src="img/logo.svg" alt="" width="100" height="35"></a> -->
 							<a href="{{route('website.home')}}">
-								<h1 class="text-white mt-2">Logo</h1>
+								<h1 class="text-white mt-2">ReNt</h1>
 							</a>
 						</div>
 					</div>
@@ -432,7 +432,7 @@
 			<div class="row add_bottom_25">
 				<div class="col-lg-6">
 					<ul class="footer-selector clearfix">
-						{{-- <li>
+						<li>
 							<div class="styled-select lang-selector">
 								<select>
 									<option value="English" selected>English</option>
@@ -441,16 +441,16 @@
 									<option value="Russian">Russian</option>
 								</select>
 							</div>
-						</li> --}}
-{{-- 						<li>
+						</li>
+						<li>
 							<div class="styled-select currency-selector">
 								<select>
-									<option value="US Dollars" selected>US Dollars</option>
-									<option value="Euro">Euro</option>
+									<option value="US Dollars" selected>BDT Tk</option>
+									<option value="Euro">$</option>
 								</select>
 							</div>
-						</li> --}}
-						<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/cards_all.svg" alt="" width="198" height="30" class="lazy"></li>
+						</li>
+						
 					</ul>
 				</div>
 				<div class="col-lg-6">

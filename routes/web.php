@@ -265,24 +265,6 @@ Route::group([
 
 
 
-    // slider
-    Route::get('/sliders','SliderController@index')->name('admin.sliders');
-    Route::get('/slider/add','SliderController@add')->name('admin.slider.add');
-    Route::get('/slider/edit/{id}','SliderController@edit')->name('admin.slider.edit');
-    Route::get('/slider/show/{id}','SliderController@show')->name('admin.slider.show');
-    Route::post('/slider/store','SliderController@store')->name('admin.slider.store');
-    Route::post('/slider/active','SliderController@active')->name('admin.slider.active');
-    Route::post('/slider/delete','SliderController@delete')->name('admin.slider.delete');
-
-
-    // faq
-    Route::get('/faqs','FaqController@index')->name('admin.faqs');
-    Route::get('/faq/add','FaqController@add')->name('admin.faq.add');
-    Route::get('/faq/edit/{id}','FaqController@edit')->name('admin.faq.edit');
-    Route::get('/faq/show/{id}','FaqController@show')->name('admin.faq.show');
-    Route::post('/faq/store','FaqController@store')->name('admin.faq.store');
-    Route::post('/faq/update','FaqController@update')->name('admin.faq.update');
-    Route::post('/faq/delete','FaqController@delete')->name('admin.faq.delete');
 
 
 

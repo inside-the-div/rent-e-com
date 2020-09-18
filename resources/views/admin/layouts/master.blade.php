@@ -58,7 +58,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
     <a class="navbar-brand" href="{{route('admin.dashboard')}}">
       <!-- <img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"> -->
-      <h2 class="text-white font-pt" style="height: 36px;">Logo
+      <h2 class="text-white font-pt" style="height: 36px;">RENT
         
       </h2>
 
@@ -203,10 +203,7 @@
            <i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>
             <span class="nav-link-text font-pt">All</span>
           </a>
-          <a class="nav-link @if(Request::is('admin/email/send/page')) active @endif"  href="{{route('admin.email.send_page')}}">
-            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-            <span class="nav-link-text font-pt">Send</span>
-          </a>
+         
       </div>
     </div>
   </li>
@@ -251,13 +248,13 @@
 
 
          
-        <li class="nav-item @if(Request::is('admin/settings')) active @endif" data-toggle="tooltip" data-placement="right"  title="Settings">
+{{--         <li class="nav-item @if(Request::is('admin/settings')) active @endif" data-toggle="tooltip" data-placement="right"  title="Settings">
           <a class="nav-link" href="{{route('admin.settings')}}">
             <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
             <span class="nav-link-text font-pt">Settings</span>
           </a>
         </li>
-        
+         --}}
       
 
       </ul>
@@ -350,7 +347,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Your Name</small>
+          <small>Copyright © RENT</small>
         </div>
       </div>
     </footer>
@@ -465,8 +462,8 @@
             e.preventDefault();
           })// end ajax
 
-
-          setInterval(find_order_notification, 3000);
+          find_order_notification();
+          setInterval(find_order_notification, 20000);
 
         
 

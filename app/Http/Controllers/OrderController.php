@@ -34,14 +34,48 @@ class OrderController extends Controller
         $products_ids = DB::table('order_products')->where('order_id', $order->id)->get();
 
 
-        $products_id_array =  [];
-        $products_qty_array =  [];
+        // $products_id_array =  [];
+        // $products_qty_array =  [];
+        // foreach ($products_ids as $p) {
+        //     array_push($products_id_array, $p->product_id);
+        //     array_push($products_qty_array, $p->product_quantity);
+        // }
+
+       
+        // $products = Product::whereIn('id',$products_id_array)->get();
+
+
+
+
+        $products =  [];
+
         foreach ($products_ids as $p) {
-            array_push($products_id_array, $p->product_id);
-            array_push($products_qty_array, $p->product_quantity);
+
+
+        
+
+            $product = Product::find($p->product_id);
+
+            $temp_product =  array(
+
+                'id'        => $product->id, 
+                'slug'      => $product->slug, 
+                'name'      => $product->name, 
+                'code'      => $product->name, 
+                'image'     => $product->image, 
+                'price'     => $p->product_price, 
+                'date'      => $p->date, 
+                'quantity'  => $p->product_quantity
+            );
+
+            array_push($products, $temp_product);
+
         }
 
-        $products = Product::whereIn('id',$products_id_array)->get();
+
+
+
+        
          
         return view('admin.order.show',compact('order','shipping','billing','products','products_qty_array'));
     }
@@ -79,6 +113,24 @@ class OrderController extends Controller
     public function update(Request $r){
         
         $order = Order::find($r->id);
+
+
+
+
+
+       
+       if($r->order_status == "confirm"){
+           $products_data =  DB::table('order_products')->where('order_id','=',$order->id)->get();
+
+           foreach ($products_data as $product_data) {
+               $product = Product::find($product_data->product_id);
+               $product->stock = ($product->stock) - ($product_data->product_quantity);
+               $product->save();
+           }
+
+       }
+
+
 
         $order->payment = $r->payment_status;
         $order->admin_note = $r->admin_note;

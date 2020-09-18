@@ -239,7 +239,7 @@ body.fixed-nav {
   }
 }
 #mainNav.fixed-top.navbar-dark .sidenav-toggler {
-  background-color: #212529;
+  background-color: #673ab7;
   border-top: 1px solid #343a40;
 }
 #mainNav.fixed-top.navbar-dark .sidenav-toggler a i {
@@ -352,7 +352,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 }
 @media (min-width: 992px) {
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
-    background: #212529;
+    background: #673ab7;
     padding-top: 10px;
   }
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {

@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     {
         $user = new User;
 
-        $user->name = "Nasir Khan | Owner";
+        $user->name = "Owner";
         $user->email = "owner@gmail.com";
         $user->password  = Hash::make("22222222");
         $user->un_hash_password = "22222222";

@@ -26,7 +26,7 @@ class ProductController extends Controller
 
 	public function show($slug){
 		
-		$product = Product::with('images','reviews','user')->where('slug','=',$slug)->first();
+		$product = Product::with('reviews','user')->where('slug','=',$slug)->first();
 		return view('admin.product.show',compact('product'));
 	}
 

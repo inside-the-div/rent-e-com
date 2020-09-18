@@ -61,13 +61,13 @@ class ProductSeeder extends Seeder
                 $discount = rand(0,35);
                  
 
-                 $product->code              = "DoDo-P-".$i.'-'.$j;
+                 $product->code              = "ReRo-P-".$i.'-'.$j;
                  $product->user_id           = 1;
                  $product->view              = 100;
                  $product->rating            = rand(2,5);
                  $product->name              = $name[$i].' T-Shirt-'.$j;
                  $product->slug              = str_replace(" ","-",strtolower($name[$i].' T-Shirt-'.$j));
-                 $product->image             = $name[$i].' ('.$j.').jpg';
+                 $product->image             = "product (".rand(1,22).").jpg";
                  $product->price             = rand(1000,2500);
                  $product->stock             = rand(50,150);
                  $product->description       = $description;
